@@ -1,8 +1,12 @@
 ## Wonderlabz Assessment
 
+### Documentation
+
+The questions for the project can be found in the `docs` directory
+
 ### Conversions service
 
-For the conversions service manual head over [here](HELP.md)
+For the conversions service manual head over [here](ReadMe.md)
 
 ### Console Roulette Game
 
