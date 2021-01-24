@@ -1,4 +1,4 @@
 package com.wonderlabz.conversions.service;
 
-public class ConversionService {
+public interface ConversionService {
 }

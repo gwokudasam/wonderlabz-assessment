@@ -17,5 +17,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @since v1.0
  */
 @RequestMapping(value = "/conversions", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-public interface ConversionEndPoint {
+public interface ConversionEndPoint extends ConversionService{
 }
