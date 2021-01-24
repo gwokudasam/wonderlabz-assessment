@@ -1,6 +1,6 @@
 package com.wonderlabz.conversions.endpoint;
 
-import com.wonderlabz.conversions.service.ConversionService;
+import com.wonderlabz.conversions.service.api.ConversionService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 
