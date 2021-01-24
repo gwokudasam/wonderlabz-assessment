@@ -74,5 +74,4 @@ public class ConversionResource implements ConversionEndPoint {
         log.debug("REST request to convert {} km to miles", kilometreRequestDTO);
         return conversionService.kilometresToMiles(kilometreRequestDTO);
     }
-
 }
