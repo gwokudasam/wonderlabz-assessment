@@ -30,6 +30,19 @@
         </developer>
     </developers>
     <!-- End - Project Owner -->
+    <!-- Start - Wonderlabz Assessment source repository -->
+    <scm>
+        <connection>https://github.com/gwokudasam/wonderlabz-assessment.git</connection>
+        <developerConnection>git@github.com/gwokudasam/wonderlabz-assessment.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    <!-- End - Wonderlabz Assessment source repository -->
+    <!-- Start - Wonderlabz Assessment issue management -->
+    <issueManagement>
+        <system>GitHub</system>
+        <url>github.com/gwokudasam/wonderlabz-assessment/issues</url>
+    </issueManagement>
+    <!-- End - Wonderlabz Assessment issue management -->
     <properties>
         <java.version>15</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>

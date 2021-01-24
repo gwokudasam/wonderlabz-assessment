@@ -1,1 +1,12 @@
-
+server:
+  port: ${SERVER_PORT:9095}
+spring:
+  application:
+    name: conversion-service
+  output:
+    ansi:
+      enabled: always
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    za.co.hitechcpt: debug
