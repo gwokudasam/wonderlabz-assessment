@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wonderlabz</groupId>
+    <artifactId>wonderlabz-assessment</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>wonderlabz-assessment</name>
+    <description>Wonderlabz Assessments</description>
+    <packaging>pom</packaging>
+    <inceptionYear>2021</inceptionYear>
+    <!-- Start - Project Owner -->
+    <developers>
+        <developer>
+            <id>sam</id>
+            <name>Samuel Gwokuda</name>
+            <email>gwokudasam@gmail.com</email>
+            <organization>Hi Tech Recruitment</organization>
+            <organizationUrl>https://hi-tech.co.za</organizationUrl>
+            <timezone>GMT+2</timezone>
+        </developer>
+    </developers>
+    <!-- End - Project Owner -->
+    <properties>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
+    </properties>
+
+    <modules>
+        <module>conversions-service</module>
+        <module>roulette-console</module>
+    </modules>
+</project>
