@@ -3,43 +3,120 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.2</version>
+        <groupId>com.wonderlabz</groupId>
+        <artifactId>wonderlabz-assessment</artifactId>
+        <version>1.0-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.wonderlabz</groupId>
-    <artifactId>conversions-service</artifactId>
+    <artifactId>conversions</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>conversions-service</name>
+    <name>conversions</name>
     <description>Conversions Service</description>
+    <packaging>jar</packaging>
+    <inceptionYear>2021</inceptionYear>
+    <!-- Start - Project Owner -->
+    <developers>
+        <developer>
+            <id>sam</id>
+            <name>Samuel Gwokuda</name>
+            <email>gwokudasam@gmail.com</email>
+            <organization>Hi Tech Recruitment</organization>
+            <organizationUrl>https://hi-tech.co.za</organizationUrl>
+            <timezone>GMT+2</timezone>
+        </developer>
+    </developers>
+    <!-- End - Project Owner -->
     <properties>
-        <java.version>15</java.version>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
+        <!-- Start - Typical spring web framework -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <!-- End - Typical spring web framework -->
+        <!-- Start - Developer utilities tools   -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <!-- End - Developer utilities tools   -->
+        <!-- Start - Providing some useful infos about the service through REST API -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- End - Providing some useful infos about the service through REST API -->
+        <!-- Start - Testing dependencies -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${javax.validation-api.version}</version>
+        </dependency>
+        <!-- End - Testing dependencies -->
     </dependencies>
 
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <enableAssertions>true</enableAssertions>
+                    <argLine>--enable-preview -ea</argLine>
+                    <includes>
+                        <include>**/*Tests.java</include>
+                        <include>**/*Test.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- Make final jar, a layered jar -->
+                    <layers>
+                        <enabled>true</enabled>
+                    </layers>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!--
+                                To generate build information to be included via
+                                http(s)://<hostname>:<port>/actuator/info
+                             -->
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <release>${java.version}</release>
+                    <compilerArgs>--enable-preview</compilerArgs>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
             </plugin>
         </plugins>
+        <finalName>conversion-service</finalName>
     </build>
-
 </project>
