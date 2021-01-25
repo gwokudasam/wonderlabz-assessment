@@ -1,1 +1,7 @@
-
+spring:
+  application:
+    name: console-roulette
+server:
+  port: 9096
+application:
+  player-data-location: "data/players.dat"
