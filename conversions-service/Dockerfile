@@ -15,6 +15,6 @@ MAINTAINER ${MANTAINER}
 
 COPY target/conversion-service.jar conversion-service.jar
 
-ENTRYPOINT ["java",  "-server", "--enable-preview", "-XX:+UseContainerSupport", "-XX:+ShowCodeDetailsInExceptionMessages", "-Djava.security.egd=file:/dev/./urandom", "-Dfile.encoding=UTF-8", "-jar", "-Duser.timezone=${TZ}", "-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}", "conversion-service.jar"]
+ENTRYPOINT ["java",  "-server", "--enable-preview", "-XX:+UseContainerSupport", "-XX:+ShowCodeDetailsInExceptionMessages", "-Djava.security.egd=file:/dev/./urandom", "-Dfile.encoding=UTF-8", "-jar", "-Duser.timezone=${TZ}", "-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE:default}", "conversion-service.jar"]
 
 EXPOSE 9095
