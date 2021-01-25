@@ -32,6 +32,6 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>console-roulette</finalName>
     </build>
-
 </project>

@@ -12,9 +12,19 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * <p>
+ * Utility file to load player names from the filesystem
+ * </p>
+ *
+ * @author Samuel Gwokuda <gwokudasam@gmail.com>
+ * @version v1.0
+ * @since v1.0
+ */
 @Component
 @Log4j2
 public final class PlayerFileUtil {
@@ -30,7 +40,7 @@ public final class PlayerFileUtil {
         this.environment = environment;
     }
 
-    private String getPlayerDataFileLocation(){
+    private String getPlayerDataFileLocation() {
         return environment.getRequiredProperty("application.player-data-location");
     }
 
@@ -41,7 +51,11 @@ public final class PlayerFileUtil {
                 "classpath:" + playerDataFileLocation);
     }
 
-    public Set<String> getPlayerNames(){
+    /**
+     * Load player names from the filesystem and return them as a {@link Set}
+     * @throws IOException if the file is not found
+     */
+    public Set<String> getPlayerNames() {
         final String playerDataFileLocation = getPlayerDataFileLocation();
         try {
             final File playerFile = new ClassPathResource(playerDataFileLocation).getFile();
@@ -51,6 +65,6 @@ public final class PlayerFileUtil {
         } catch (final IOException e) {
             log.error("Error reading player file ", e);
         }
-        return null;
+        return Collections.emptySet();
     }
 }
