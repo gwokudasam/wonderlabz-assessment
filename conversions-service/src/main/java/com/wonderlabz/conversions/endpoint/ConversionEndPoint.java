@@ -4,6 +4,7 @@ import com.wonderlabz.conversions.dto.CelsiusRequestDTO;
 import com.wonderlabz.conversions.dto.KelvinTempRequestDTO;
 import com.wonderlabz.conversions.dto.KilometreRequestDTO;
 import com.wonderlabz.conversions.dto.MileRequestDTO;
+import com.wonderlabz.conversions.dto.OutputDTO;
 import com.wonderlabz.conversions.service.api.ConversionService;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,7 +46,7 @@ public interface ConversionEndPoint extends ConversionService {
      */
     @PostMapping(value = "/ctok")
     @Override
-    double celsiusToKelvin(@RequestBody @Valid final CelsiusRequestDTO celsiusRequestDTO);
+    OutputDTO celsiusToKelvin(@RequestBody @Valid final CelsiusRequestDTO celsiusRequestDTO);
 
     /**
      * <p>
@@ -65,7 +66,7 @@ public interface ConversionEndPoint extends ConversionService {
      */
     @PostMapping(value = "/ktoc")
     @Override
-    double kelvinToCelsius(@RequestBody @Valid final KelvinTempRequestDTO kelvinTempRequestDTO);
+    OutputDTO kelvinToCelsius(@RequestBody @Valid final KelvinTempRequestDTO kelvinTempRequestDTO);
 
     /**
      * <p>
@@ -85,7 +86,7 @@ public interface ConversionEndPoint extends ConversionService {
      */
     @PostMapping(value = "/mtok")
     @Override
-    double milesToKilometres(@RequestBody @Valid final MileRequestDTO mileRequestDTO);
+    OutputDTO milesToKilometres(@RequestBody @Valid final MileRequestDTO mileRequestDTO);
 
     /**
      * <p>
@@ -105,5 +106,5 @@ public interface ConversionEndPoint extends ConversionService {
      */
     @PostMapping(value = "/ktom")
     @Override
-    double kilometresToMiles(@RequestBody @Valid final KilometreRequestDTO kilometreRequestDTO);
+    OutputDTO kilometresToMiles(@RequestBody @Valid final KilometreRequestDTO kilometreRequestDTO);
 }

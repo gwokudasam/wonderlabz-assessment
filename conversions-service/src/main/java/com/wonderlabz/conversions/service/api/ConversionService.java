@@ -5,6 +5,7 @@ import com.wonderlabz.conversions.dto.CelsiusRequestDTO;
 import com.wonderlabz.conversions.dto.KelvinTempRequestDTO;
 import com.wonderlabz.conversions.dto.KilometreRequestDTO;
 import com.wonderlabz.conversions.dto.MileRequestDTO;
+import com.wonderlabz.conversions.dto.OutputDTO;
 
 import javax.validation.Valid;
 
@@ -38,7 +39,7 @@ public interface ConversionService {
      * @return The converted temperature in kelvin
      * @since v1.0
      */
-    double celsiusToKelvin(@Valid final CelsiusRequestDTO celsiusRequestDTO);
+    OutputDTO celsiusToKelvin(@Valid final CelsiusRequestDTO celsiusRequestDTO);
 
     /**
      * <p>
@@ -56,7 +57,7 @@ public interface ConversionService {
      * @return The converted temperature in celsius
      * @since v1.0
      */
-    double kelvinToCelsius(@Valid final KelvinTempRequestDTO kelvinTempRequestDTO);
+    OutputDTO kelvinToCelsius(@Valid final KelvinTempRequestDTO kelvinTempRequestDTO);
 
     /**
      * <p>
@@ -74,7 +75,7 @@ public interface ConversionService {
      * @return The converted distance in kilometres
      * @since v1.0
      */
-    double milesToKilometres(@Valid final MileRequestDTO mileRequestDTO);
+    OutputDTO milesToKilometres(@Valid final MileRequestDTO mileRequestDTO);
 
     /**
      * <p>
@@ -92,5 +93,5 @@ public interface ConversionService {
      * @return The converted distance in kilometres
      * @since v1.0
      */
-    double kilometresToMiles(@Valid final KilometreRequestDTO kilometreRequestDTO);
+    OutputDTO kilometresToMiles(@Valid final KilometreRequestDTO kilometreRequestDTO);
 }
