@@ -11,6 +11,13 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+/**
+ * An dto for a Bet, containing all data pertaining to a bet
+ *
+ * @author Samuel Gwokuda <gwokudasam@gmail.com>
+ * @version v1.0
+ * @since v1.0
+ */
 @Data
 @Builder
 @NoArgsConstructor
