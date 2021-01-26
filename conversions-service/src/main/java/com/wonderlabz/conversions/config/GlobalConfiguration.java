@@ -25,6 +25,7 @@ public class GlobalConfiguration {
     public Jackson2ObjectMapperBuilderCustomizer jacksonCustomizer() {
         return builder ->
                 builder
+                        .indentOutput(true)
                         .visibility(
                                 PropertyAccessor.FIELD,
                                 JsonAutoDetect.Visibility.ANY);

@@ -23,7 +23,7 @@ services:
     network_mode: host
     # End - Conversions Service
     # Start - Conversions Service
-    console-roulette:
+  console-roulette:
       container_name: console-roulette
       hostname: console-roulette
       build:
