@@ -1,7 +1,11 @@
 package com.wonderlabz.conversions.service.impl;
 
 
+import com.wonderlabz.conversions.dto.CelsiusRequestDTO;
 import com.wonderlabz.conversions.dto.KelvinTempRequestDTO;
+import com.wonderlabz.conversions.dto.KilometreRequestDTO;
+import com.wonderlabz.conversions.dto.MileRequestDTO;
+import com.wonderlabz.conversions.dto.OutputDTO;
 import com.wonderlabz.conversions.service.api.ConversionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +37,12 @@ class ConversionServiceTest {
 
     private static final KelvinTempRequestDTO KELVIN_TEMP_REQUEST_DTO = new KelvinTempRequestDTO(373.15D);
 
+    private static final CelsiusRequestDTO CELSIUS_REQUEST_DTO = new CelsiusRequestDTO(100D);
+
+    private static final MileRequestDTO MILE_REQUEST_DTO = new MileRequestDTO(100D);
+
+    private static final KilometreRequestDTO KILOMETRE_REQUEST_DTO = new KilometreRequestDTO(100D);
+
     @Test
     void contextLoads() {
         assertTrue(true);
@@ -40,8 +50,25 @@ class ConversionServiceTest {
 
     @Test
     void testKelvinToCelsius() {
-        final double celsiusTemp = conversionService.kelvinToCelsius(KELVIN_TEMP_REQUEST_DTO);
-        assertEquals(100D, celsiusTemp, "100 degrees centigrade should be equal to 373.15K");
+        final OutputDTO celsiusTemp = conversionService.kelvinToCelsius(KELVIN_TEMP_REQUEST_DTO);
+        assertEquals(100D, celsiusTemp.output(), "100 degrees centigrade should be equal to 373.15K");
     }
 
+    @Test
+    void testCelsiusToKelvin() {
+        final OutputDTO kelvinTemp = conversionService.celsiusToKelvin(CELSIUS_REQUEST_DTO);
+        assertEquals(373.15D, kelvinTemp.output(), "373.15K should be equal to 100 degrees centigrade");
+    }
+
+    @Test
+    void testMilesToKilometres() {
+        final OutputDTO kilometres = conversionService.milesToKilometres(MILE_REQUEST_DTO);
+        assertEquals(160.9344D, kilometres.output(), "100 miles should be equal to 160.934km");
+    }
+
+    @Test
+    void testKilometresToMilesConversion() {
+        final OutputDTO miles = conversionService.kilometresToMiles(KILOMETRE_REQUEST_DTO);
+        assertEquals(62.13712D, miles.output(), "100 km should be equal to 6213712 mi");
+    }
 }

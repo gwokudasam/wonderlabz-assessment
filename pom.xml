@@ -59,4 +59,40 @@
         <module>roulette-console</module>
     </modules>
     <!-- Start Project Modules -->
+
+    <!-- Start application dependencies -->
+    <dependencies>
+        <!-- Start - Developer utilities tools   -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <!-- End - Developer utilities tools   -->
+        <!-- Start - Providing some useful infos about the service through REST API -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- End - Providing some useful infos about the service through REST API -->
+        <!-- Start - Testing dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>${javax.validation-api.version}</version>
+        </dependency>
+        <!-- End - Testing dependencies -->
+    </dependencies>
+    <!-- End application dependencies -->
+
 </project>

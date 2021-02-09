@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+# Start - Core Microservices
+# Start - Conversions Service
+  conversions-service:
+    container_name: conversions-service
+    hostname: conversions-service
+    build:
+      context: .
+      dockerfile: conversions-service/Dockerfile
+    image: wonderlabz/conversion-service
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "--silent", "conversion-service:9095/actuator/health 2>&1 | grep UP || exit 1"]
+      interval: 5s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - ./logs:/logs:rw
+    ports:
+      - 9095:9095
+    network_mode: host
+    # End - Conversions Service
+    # Start - Conversions Service
+  console-roulette:
+      container_name: console-roulette
+      hostname: console-roulette
+      build:
+        context: .
+        dockerfile: roulette-console/Dockerfile
+      image: wonderlabz/console-roulette
+      restart: on-failure
+      healthcheck:
+        test: [ "CMD", "curl", "--fail", "--silent", "console-roulette:9096/actuator/health 2>&1 | grep UP || exit 1" ]
+        interval: 5s
+        timeout: 10s
+        retries: 3
+      volumes:
+        - ./logs:/logs:rw
+      ports:
+        - 9096:9096
+      network_mode: host
+      # End - Conversions Service
+      # End - Core Microservices
